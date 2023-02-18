@@ -38,4 +38,4 @@ def extract_tokens(input_code):
 
     return tokens
 
-print("test", extract_tokens_pairs("print('Hello World!', 7)"))
+print("test", extract_tokens("print('Hello World!', 7)"))
