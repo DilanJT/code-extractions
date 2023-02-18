@@ -4,4 +4,4 @@ This is a playground of different code extraction techniques used that might be 
 ### tree-sitter
 To use the python files in the tree sitter you may need to install the below tree-sitter package
 
-pip install tree-sitter
+>pip install tree-sitter
