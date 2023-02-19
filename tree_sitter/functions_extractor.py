@@ -1,10 +1,8 @@
 import tree_sitter
 import sys
 
-### STILL IN DEVELOPMENT ###
 
-# Download and compile the Python language grammar
-# This only needs to be done once
+# Here you can pass the code and extract the functions and their arguments
 
 
 
@@ -34,8 +32,10 @@ def extract_functions_code(code):
 
             # Extract the names of the arguments
             arguments = []
+            #print("node : ", node.child_by_field_name('parameters'))
             for param_node in node.child_by_field_name('parameters').children:
-                if param_node.type == 'name':
+                print("param_node : ", param_node.type)
+                if param_node.type == 'identifier':
                     argument = code[param_node.start_byte:param_node.end_byte]
                     arguments.append(argument)
 
@@ -54,6 +54,9 @@ def multiply(x, y):
 
 z = add(2, 3)
 w = multiply(z, 4)
+
+def greet(name):
+    print('Hello', name)
 """
 
 # Extract the function definitions and their arguments from the input code
@@ -61,5 +64,5 @@ functions = extract_functions_code(code)
 
 # Print the function definitions and their arguments
 for name, arguments in functions:
-    print('Function:', name)
+    print('\nFunction:', name)
     print('Arguments:', ', '.join(arguments))
